@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 310520177}
   - component: {fileID: 310520176}
   - component: {fileID: 310520182}
+  - component: {fileID: 310520183}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -180,23 +181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940324b4fcd869140b5d6003f54fef74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeftAction:
-    m_Name: Left
-    m_Type: 1
-    m_ExpectedControlType: Button
-    m_Id: 324cdbec-4990-4eed-a1e1-e1bccb2a12f7
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: c23cabeb-31ab-4356-bf00-2694ad153bc6
-      m_Path: <Keyboard>/leftArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Left
-      m_Flags: 0
-    m_Flags: 0
   MoveAction:
     m_Name: Move
     m_Type: 0
@@ -246,13 +230,6 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 8
     m_Flags: 0
-  headMinY: -40
-  headMaxY: 40
-  grabDistance: 3
-  grabbableLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  holdPoint: {fileID: 1490668567}
 --- !u!136 &310520178
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -464,6 +441,55 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &310520183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310520175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e53e7e9681a80742b29cc2852110c5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GrabAction:
+    m_Name: Grab
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: d1f80be8-1cfd-4a48-a038-c9808f046873
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 1D Axis
+      m_Id: 9ba8662d-e653-44ad-b883-f8750dec0a87
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Grab
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: dee00ef6-6391-4b00-aa3e-2de9e9d3d50e
+      m_Path: 
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Grab
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: 2a65312a-3694-472d-8afe-c30699d30c4b
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Grab
+      m_Flags: 8
+    m_Flags: 0
+  grabbableLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  holdPoint: {fileID: 1490668567}
 --- !u!1 &878534275
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,6 +735,54 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &966335797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 966335799}
+  - component: {fileID: 966335798}
+  m_Layer: 0
+  m_Name: ObjectSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &966335798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966335797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90206537e0f75a245b2c8a5fcd21da45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawningObj: {fileID: 1810758867217469075, guid: 54b10640dbb898f469ed2470bf3cdfe2, type: 3}
+  spawnPoints:
+  - {x: 3, y: 1, z: 3}
+  - {x: -3, y: 1, z: -3}
+--- !u!4 &966335799
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966335797}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.046762, y: 0.92, z: -1.44758}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1490668566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,3 +1080,4 @@ SceneRoots:
   - {fileID: 878534279}
   - {fileID: 310520181}
   - {fileID: 947229349}
+  - {fileID: 966335799}
