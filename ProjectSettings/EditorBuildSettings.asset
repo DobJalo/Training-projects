@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Prototype_GameLab.unity
+    guid: aa507d7bdeb5e0443a2bbc273abcc383
+  - enabled: 0
     path: Assets/Scenes/Forest.unity
     guid: c78e7ea9e3e81da458d0a14801b00d0c
   - enabled: 0
